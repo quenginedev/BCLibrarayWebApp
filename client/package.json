@@ -1,0 +1,33 @@
+{
+  "name": "bclibrary",
+  "version": "0.0.1",
+  "description": "A online library for bluecrest university college",
+  "productName": "BlueCrest Library",
+  "cordovaId": "com.bluecrest.library",
+  "capacitorId": "",
+  "author": "Ernest Hayford <ernest.hayford@bluecrest.edu.gh>",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.18.1",
+    "firebase": "^7.6.1",
+    "google-books": "^0.1.0",
+    "quasar": "^1.0.0",
+    "scriptjs": "^2.5.9",
+    "vue-i18n": "^8.0.0"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.0.0"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}
