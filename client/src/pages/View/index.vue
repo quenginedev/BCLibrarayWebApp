@@ -1,15 +1,16 @@
 <template>
     <div class="row justify-center full-height">
-        
         <book v-if="$route.query.type === 'book'"/>
+        <iframe-view v-else/>
     </div>
 </template>
 <script>
 import Book from './GoogleBookViewer'
+import IframeView from "./IframeView";
 export default {
-    components: {Book},
+    components: {IframeView, Book},
     created(){
-        console.log(this.$route)
+
     }
 }
 </script>

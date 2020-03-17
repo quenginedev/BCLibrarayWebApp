@@ -2,15 +2,12 @@
     <q-page class="row justify-center items-center no-wrap">
         <div class="col-11 col-sm-7 col-md-5 col-lg-3">
             <q-card class="text-primary">
-                <div class="q-pa-md">
-                    <q-toolbar class="q-mb-md">
+                <div class=" q-pa-md">
+                    <q-toolbar class=" q-mb-md row justify-between items-center">
                         <q-avatar>
-                            <q-img src="../assets/logo.jpg"></q-img>
+                            <q-img src="../../../assets/logo.jpg"></q-img>
                         </q-avatar>
-                        <q-space/>
-                        <!-- Set a click listener to switch from sign in to sign up  -->
-                        <q-btn flat size="small" @click="it_is_sign_in = !it_is_sign_in"
-                            :label="it_is_sign_in? 'sign up': 'sign in'"></q-btn>
+                        <p class="text-h5">Admin</p>
                     </q-toolbar>
                     <q-form @submit="processAuth">
                         <q-input v-model="email" class=" q-mb-md" type="email" placeholder="Email" filled >
@@ -27,8 +24,6 @@
                         </q-input>
                         <q-btn @click="processAuth" :loading="loading" :label="it_is_sign_in ? 'sign in': 'sign up'" 
                             class="full-width q-mb-md" color="primary"></q-btn>
-                        <q-separator />
-                        <q-btn label="Google" icon="eva-google-outline" class="full-width q-my-md" color="red-6"></q-btn>
                     </q-form>
                 </div>
             </q-card>

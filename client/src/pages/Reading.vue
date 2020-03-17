@@ -1,21 +1,33 @@
 <template>
     <q-page class="row justify-center">
-        <div class="col-11 row justify-center">
-            <book @click="readBook(book)" :book="book" v-for="(book, index) in books" :key="index">
-                <div class="row justify-between full-width">
-                    <q-btn @click="returnBook(book)" icon="eva-trash-2-outline" color="orange" label="return"></q-btn>
-                    <q-btn @click="readBook(book)" icon="eva-book-open-outline" color="primary" label="read"></q-btn>
+        <div class="col-11 col-md-10">
+            <div class="row justify-center">
+                <div class="col-11 col-sm-6 col-md-5 col-lg-3 col-xl-2" v-for="(book, index) in books" :key="index">
+                    <book @click="readBook(book)" v-if="book.type === 'book'" :book="book">
+                        <div class="row justify-between full-width">
+                            <q-btn @click="returnBook(book)" icon="eva-trash-2-outline" color="orange" label="return"></q-btn>
+                            <q-btn @click="readBook(book)" icon="eva-book-open-outline" color="primary" label="read"></q-btn>
+                        </div>
+                    </book>
+                    <project-pallete :show-desc="false" class="q-mt-md q-mx-md" v-else-if="book.type === 'project'" :project="book">
+                        <div class="row justify-between full-width">
+                            <q-btn @click="returnBook(book)" icon="eva-trash-2-outline" color="orange" label="return"></q-btn>
+                            <q-btn @click="readBook(book)" icon="eva-book-open-outline" color="primary" label="read"></q-btn>
+                        </div>
+                    </project-pallete>
+        <!--            create a template to read projects-->
                 </div>
-            </book>
+            </div>
         </div>
     </q-page>
 </template>
 
 <script>
 import Book from '../components/Book'
+import ProjectPallete from "../components/ProjectPallete";
 export default {
     name: 'PageIndex',
-    components: {Book},
+    components: {ProjectPallete, Book},
     data() {
         return {
         books: [],
@@ -63,7 +75,6 @@ export default {
             // console.log(book)
         },
         readBook(book){
-            console.log(book)
             this.$router.push({name: 'view', query: {type: book.type, id: book.id}})
         }
     },

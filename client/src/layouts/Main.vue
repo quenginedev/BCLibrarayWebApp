@@ -20,11 +20,41 @@
           :to="{name: 'reading'}" 
           icon="eva-book-open-outline"
           flat :label="!isSm ? 'reading' : ''"></q-btn>
+      <q-btn :round="isSm"
+            v-if="isAdmin"
+            :class="{'text-blue' : isPage('manage-projects')}" 
+            :to="{name: 'manage-projects'}" 
+            icon="eva-cube-outline"
+            flat :label="!isSm ? 'manage projects' : ''"></q-btn>
+        <q-btn :round="isSm" 
+            v-if="isAdmin"
+            :class="{'text-blue' : isPage('manage-users')}" 
+            :to="{name: 'manage-users'}" 
+            icon="eva-people-outline"
+            flat :label="!isSm ? 'manage users' : ''"></q-btn>
       <q-space/>
-      <q-btn :class="{'text-blue' : isPage('profile')}" icon="eva-person-outline" flat round/>
+      <q-btn @click="firebase.auth().signOut()"
+             :label="!isSm ? 'log out' : ''"
+             flat
+             :round="isSm"
+             color="warning" icon="eva-power-outline"></q-btn>
+<!--      <q-btn :class="{'text-blue' : isPage('profile')}" icon="eva-person-outline" flat round>-->
+<!--        <q-popup-proxy>-->
+<!--          <div style="width:320px" class="row">-->
+<!--            <div v-if="user.info.isAdmin" class="col-xs-12">-->
+<!--              <q-btn :to="{name: 'manage-projects'}" label="Manage" class=" full-width"  flat color="info" icon="eva-grid-outline"></q-btn>-->
+<!--            </div>-->
+<!--            <div class="col-xs-12">-->
+<!--              <q-btn label="profile" disabled class=" full-width" flat color="primary" icon="eva-person-outline"></q-btn>-->
+<!--            </div>-->
+<!--            <div class="col-xs-12">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </q-popup-proxy>-->
+<!--      </q-btn>  -->
       <!-- <q-btn :class="{'text-blue' : isPage('profile')}" icon="eva-person-outline" flat round/> -->
     </q-toolbar>
-    <q-page-container >
+    <q-page-container>
       <keep-alive>
         <router-view class="router"/>
       </keep-alive>
@@ -37,14 +67,11 @@ export default {
   name: 'Main',
   data () {
     return {
-      show_route: false
+      show_route: false,
+      user: {}
     }
   },
-  computed: {
-    isSm(){
-      return this.$q.screen.lt.md
-    }
-  },
+  
   methods: {
     getUserData(user){
       this.firebase.firestore().collection('users').doc(user.uid).onSnapshot(res=>{
@@ -55,27 +82,17 @@ export default {
             displayName: user.displayName,
             photoURL: user.photoURL,
             email: user.email,
-            phoneNumber: user.phoneNumber
+            phoneNumber: user.phoneNumber,
           })
+          this.user = res.data()  
         },
         err=>{
             console.log(err)
             this.showError(err.message)
           })
     },
-    isPage(name){
-      return this.$route.name == name
-    },
-    showError(message){
-      this.$q.notify({
-        message: message,
-        color: 'red',
-        icon: 'eva-alert-triangle-outline',
-        position: 'top'
-      })
-    },
     async updateUser(uid, user){
-        return await this.firebase.firestore().collection('users').doc(uid).set(user)
+      return console.log('updating ',await this.firebase.firestore().collection('users').doc(uid).set(user))
     },
     async updateUserStore(user){
       this.$store.commit('user/setUser', user)
@@ -96,6 +113,6 @@ export default {
 </script>
 <style scoped>
   .router{
-    padding-top: 56px
+    padding-top: 56px;
   }
 </style>
