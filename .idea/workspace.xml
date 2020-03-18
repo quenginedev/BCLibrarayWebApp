@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="52653875-06ca-4119-86f7-f7d90699a4a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/client/src/pages/Projects.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Projects.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/View/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/View/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/pages/View/index.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+              <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -74,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/pages/Projects.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+            <state relative-caret-position="82">
+              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
               <folding>
                 <element signature="e#454#491#0" expanded="true" />
               </folding>
@@ -146,7 +147,6 @@
         <option value="$PROJECT_DIR$/client/src/components/Uploader.vue" />
         <option value="$PROJECT_DIR$/client/quasar.conf.js" />
         <option value="$PROJECT_DIR$/client/src/boot/shave.js" />
-        <option value="$PROJECT_DIR$/client/src/pages/View/index.vue" />
         <option value="$PROJECT_DIR$/client/src/components/ProjectPallete.vue" />
         <option value="$PROJECT_DIR$/client/src/pages/Admin/Main/Projects.vue" />
         <option value="$PROJECT_DIR$/client/src/pages/Login.vue" />
@@ -158,6 +158,7 @@
         <option value="$PROJECT_DIR$/client/src/pages/Reading.vue" />
         <option value="$PROJECT_DIR$/firebase.json" />
         <option value="$PROJECT_DIR$/client/src/pages/Projects.vue" />
+        <option value="$PROJECT_DIR$/client/src/pages/View/index.vue" />
       </list>
     </option>
   </component>
@@ -197,6 +198,14 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BCLibrary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BCLibrary" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -239,12 +248,12 @@
       <workItem from="1583835363191" duration="1199000" />
       <workItem from="1584044855133" duration="5627000" />
       <workItem from="1584089274324" duration="131000" />
-      <workItem from="1584468886085" duration="15868000" />
+      <workItem from="1584468886085" duration="16579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32998000" />
+    <option name="totallyTimeSpent" value="33709000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -392,13 +401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/pages/View/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/pages/Reading.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -428,11 +430,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/pages/Projects.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+        <state relative-caret-position="82">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding>
             <element signature="e#454#491#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/pages/View/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
         </state>
       </provider>
     </entry>

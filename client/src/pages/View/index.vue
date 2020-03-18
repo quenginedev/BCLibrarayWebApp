@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-center full-height">
         <book v-if="$route.query.type === 'book'"/>
-        <iframe-view v-else/>
+        <iframe-view v-else-if="$route.query.type === 'project'"/>
     </div>
 </template>
 <script>
