@@ -5,15 +5,21 @@
                 <q-btn @click="searchProjects" round slot="append" flat icon="eva-search-outline"></q-btn>
             </q-input>
         </div>
-        <div class="col-11 row justify-center">
-            <book v-for="(project, index) in projects" :key="index"/>
+        <div class="row justify-around">
+            <ProjectPallete
+                    class="col-11 q-mb-md"
+                    v-for="project in projects"
+                    :key="project.id" :project="project">
+                <q-btn @click="AddToReading(project)" icon="eva-plus" label="Add to reading" color="primary"></q-btn>
+            </ProjectPallete>
         </div>
     </q-page>
 </template>
 <script>
 import Book from '../components/Book'
+import ProjectPallete from "../components/ProjectPallete";
 export default {
-    components: {Book},
+    components: {ProjectPallete, Book},
     data() {
         return {
             projects: [],
@@ -21,8 +27,37 @@ export default {
         }
     },
     methods: {
+        AddToReading(project){
+            let id = project.id
+            let reading = project
+            reading.type = 'project'
+
+            let user = this.firebase.auth().currentUser
+
+            this.firebase.firestore().collection('users').doc(user.uid).collection('reading')
+                .add(reading).then(_=>{
+                this.$q.notify({
+                    message: 'Project added to reading'
+                })
+            }).catch(err=>{
+                console.log(err)
+            })
+
+            this.firebase.firestore().collection('users')
+        },
         searchProjects(){
-            console.log('projects')
+            this.firebase.firestore().collection('projects').orderBy('title').startAt(this.search).endAt(this.search+'\uf8ff')
+                .get().then(res=>{
+                    console.log(res)
+                    this.projects = []
+                    res.docs.forEach(doc=>{
+                        this.projects.push({
+                            id: doc.id,
+                            ...doc.data()
+                        })
+                    })
+                }).catch(err=>console.log)
+
         }
     },
 }

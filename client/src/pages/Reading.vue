@@ -75,6 +75,7 @@ export default {
             // console.log(book)
         },
         readBook(book){
+            console.log(book.id)
             this.$router.push({name: 'view', query: {type: book.type, id: book.id}})
         }
     },

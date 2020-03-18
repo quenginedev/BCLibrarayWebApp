@@ -88,7 +88,7 @@ export default {
             this.firebase.firestore().collection('users').doc(user.uid).collection('reading')
             .add(reading).then(_=>{
                 this.$q.notify({
-                    message: 'Book added'
+                    message: 'Book added to reading'
                 })
             }).catch(err=>{
                 console.log(err)
