@@ -1,13 +1,16 @@
 <template>
-    <q-page class="row justify-center">
-        <div class="col-11 col-sm-7 col-md-5 col-lg-3">
-            <q-input v-model="search" filled placeholder="Search projects">
-                <q-btn @click="searchProjects" round slot="append" flat icon="eva-search-outline"></q-btn>
-            </q-input>
+    <q-page>
+        <div class="row justify-center">
+            <div class="col-11 col-sm-7 col-md-5 col-lg-3">
+                <q-input v-model="search" filled placeholder="Search projects">
+                    <q-btn @click="searchProjects" round slot="append" flat icon="eva-search-outline"></q-btn>
+                </q-input>
+            </div>
         </div>
-        <div class="row justify-around">
+
+        <div class="row q-mt-md justify-around">
             <ProjectPallete
-                    class="col-11 q-mb-md"
+                    class="col-11 col-sm-5 col-md-4 col-lg-3 q-mb-md"
                     v-for="project in projects"
                     :key="project.id" :project="project">
                 <q-btn @click="AddToReading(project)" icon="eva-plus" label="Add to reading" color="primary"></q-btn>
