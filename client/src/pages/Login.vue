@@ -28,7 +28,7 @@
                         <q-btn @click="processAuth" :loading="loading" :label="it_is_sign_in ? 'sign in': 'sign up'" 
                             class="full-width q-mb-md" color="primary"></q-btn>
                         <q-separator />
-                        <q-btn label="Google" icon="eva-google-outline" class="full-width q-my-md" color="red-6"></q-btn>
+                        <q-btn @click="googleAuth" label="Google" icon="eva-google-outline" class="full-width q-my-md" color="red-6"></q-btn>
                     </q-form>
                 </div>
             </q-card>
@@ -95,8 +95,19 @@ export default {
                 //Show error if passowrds mismatch
                 : (this.showError('Passowrds mismatch'), this.loading = false)
         },
-        googleAuth(){
-            //Google auth
+        googleAuth() {
+            let authProvider = new this.firebase.auth.GoogleAuthProvider()
+            this.firebase.auth().signInWithPopup(authProvider)
+                .then(res => {
+                    this.loginedInBy('google')
+                    this.$router.push({name: 'home'})
+                })
+                .catch(err => {
+                    this.showError(err.message)
+                })
+                .finally(() => {
+                    this.loading = false
+                })
         }
     },
 }

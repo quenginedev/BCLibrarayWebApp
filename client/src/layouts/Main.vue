@@ -71,7 +71,13 @@ export default {
       user: {}
     }
   },
-  
+
+  computed: {
+    isAdmin(){
+      return this.user.isAdmin
+    }
+  },
+
   methods: {
     getUserData(user){
       this.firebase.firestore().collection('users').doc(user.uid).onSnapshot(res=>{
