@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="row justify-around q-mt-md">
-            <div class="col-11 col-sm-5 col-md-4 col-lg-3 q-mb-lg" v-for="p in projects">
+            <div class="col-11 col-sm-5 col-md-4 col-lg-3 q-mb-lg" v-for="(p, i) in projects" :key="i">
                 <ProjectPallete :project="p">
                     <q-btn @click="EditProject(p)" icon="eva-edit" label="Edit Project" color="green"></q-btn>
                 </ProjectPallete>
@@ -19,7 +19,9 @@
                 <q-card-section class="q-pt-none">
                     <q-form>
                         <h4 class="text-primary">
-                            <q-icon name="eva-cube-outline"/>
+                            <q-avatar>
+                                <q-img src="../../../assets/logo.jpeg"></q-img>
+                            </q-avatar>
                             {{edited_project.title}}
                         </h4>
                         <q-input class=" q-mb-sm" filled v-model="edited_project.title" label="Project Title" />

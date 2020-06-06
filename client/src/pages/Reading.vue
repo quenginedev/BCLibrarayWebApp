@@ -1,8 +1,8 @@
 <template>
     <q-page class="row justify-center">
-        <div class="col-11 col-md-10">
+        <div class="col-12 col-md-10">
             <div class="row justify-center">
-                <div class="col-11 col-sm-6 col-md-5 col-lg-3 col-xl-2" v-for="(book, index) in books" :key="index">
+                <div class="col-12 col-sm-6 col-md-5 col-lg-3 col-xl-2" v-for="(book, index) in books" :key="index">
                     <book @click="readBook(book)" v-if="book.type === 'book'" :book="book">
                         <div class="row justify-between full-width">
                             <q-btn @click="returnBook(book)" icon="eva-trash-2-outline" color="orange" label="return"></q-btn>

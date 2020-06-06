@@ -56,15 +56,18 @@
     </q-toolbar>
     <q-page-container>
       <keep-alive>
-        <router-view class="router"/>
+        <DisabledUser v-if="user.disabled"></DisabledUser>
+        <router-view v-else class="router"/>
       </keep-alive>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
+import DisabledUser from '../components/DisabledUser'
 export default {
   name: 'Main',
+  components: {DisabledUser},
   data () {
     return {
       show_route: false,
@@ -81,8 +84,6 @@ export default {
   methods: {
     getUserData(user){
       this.firebase.firestore().collection('users').doc(user.uid).onSnapshot(res=>{
-        this.$q.loading.hide()
-        this.show_route = true
         res.exists ? this.updateUserStore(res.data()) 
           : this.updateUser(user.uid, { 
             displayName: user.displayName,
@@ -90,7 +91,11 @@ export default {
             email: user.email,
             phoneNumber: user.phoneNumber,
           })
-          this.user = res.data()  
+          this.user = res.data() 
+          console.log(this.user) 
+          this.$q.loading.hide()
+          this.show_route = true
+
         },
         err=>{
             console.log(err)

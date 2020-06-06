@@ -1,5 +1,5 @@
 <template>
-    <div class="col-11 col-sm-7 col-md-4 col-lg-3 q-ma-md">
+    <div class="col-12 col-sm-7 col-md-4 col-lg-3 q-ma-md">
         <q-card @click="showBookDetails = true" class="row justify-between" style="cursor: pointer" v-if="book">
             <q-card-section class="col-4">
                 <q-img v-if="book.volumeInfo.imageLinks" :src="book.volumeInfo.imageLinks.thumbnail"/>

@@ -1,11 +1,11 @@
 <template>
-    <q-page class="row justify-center items-center no-wrap">
-        <div class="col-11 col-sm-7 col-md-5 col-lg-3">
+    <q-page class="row justify-center items-center no-wrap wallpaper">
+        <div class="col-11 col-sm-7 col-md-4 col-lg-3">
             <q-card class="text-primary">
                 <div class="q-pa-md">
                     <q-toolbar class="q-mb-md">
                         <q-avatar>
-                            <q-img src="../assets/logo.jpg"></q-img>
+                            <q-img src="../assets/logo.jpeg"></q-img>
                         </q-avatar>
                         <q-space/>
                         <!-- Set a click listener to switch from sign in to sign up  -->
@@ -112,3 +112,12 @@ export default {
     },
 }
 </script>
+<style scoped>
+    .wallpaper {
+        background: url('../assets/wall.jpg');
+        background-size: contain;
+        background-position-x: right;
+        background-position-y: bottom;
+        background-repeat: no-repeat;
+    }
+</style>
